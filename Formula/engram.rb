@@ -1,8 +1,8 @@
 class Engram < Formula
   desc "Persistent memory for AI agents — auto-captures and searches conversations"
   homepage "https://getengram.app"
-  url "https://registry.npmjs.org/@getengram/cli/-/cli-0.3.1.tgz"
-  sha256 "1ceee106d10712f3c2b353ac4eb1f1f238d09966f3958adfb007f1597fc218ab"
+  url "https://registry.npmjs.org/@getengram/cli/-/cli-0.3.2.tgz"
+  sha256 "db28a44c6d5bed63af3d691d837c44e42056a7d3c0634d1b7e84e9b866bdb193"
   license "BSL-1.1"
 
   depends_on "node"
