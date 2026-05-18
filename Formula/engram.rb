@@ -1,9 +1,9 @@
 class Engram < Formula
   desc "Persistent memory for AI agents — auto-captures and searches conversations"
   homepage "https://getengram.app"
-  url "https://registry.npmjs.org/@getengram/cli/-/cli-0.2.1.tgz"
-  sha256 "9fe2094e50cbfeb51b1c70a73648d11c9b198b6b560b475a0550a8e0808e0c23"
-  license "MIT"
+  url "https://registry.npmjs.org/@getengram/cli/-/cli-0.3.0.tgz"
+  sha256 "6e1d4d035fe535666165c58c838d5d80499d8f4acc54a8fdd2727a15e29b0cc8"
+  license "BSL-1.1"
 
   depends_on "node"
 
@@ -27,6 +27,9 @@ class Engram < Formula
         brew services start engram
 
       First, authenticate:
+        engram signup
+
+      Or with an existing API key:
         engram auth login <your-api-key>
 
       Get your API key at https://getengram.app
