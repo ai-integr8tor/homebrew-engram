@@ -1,0 +1,18 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  formula:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Ruby syntax
+        run: ruby -c Formula/local-recall.rb
+      - name: Check Homebrew style
+        run: brew style Formula/local-recall.rb
