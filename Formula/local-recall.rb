@@ -1,8 +1,8 @@
 class LocalRecall < Formula
   desc "Self-hosted conversation memory for AI tools over MCP and REST"
   homepage "https://github.com/ai-integr8tor/engram"
-  head "https://github.com/ai-integr8tor/engram.git", branch: "main"
   license "MIT"
+  head "https://github.com/ai-integr8tor/engram.git", branch: "main"
 
   depends_on "go" => :build
 
