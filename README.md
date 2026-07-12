@@ -1,43 +1,43 @@
-# Homebrew Tap for Engram
+# Homebrew tap for Local Recall
 
-Persistent memory for AI agents. Auto-captures Claude Code conversations and makes them searchable.
+This tap builds the self-hosted [Local Recall core](https://github.com/ai-integr8tor/engram) for macOS. It installs one native Go binary and does not require a hosted account, API subscription, Node.js, or vendor telemetry.
 
-## Install
+## Install from the current main branch
 
-```bash
-brew tap get-engram/engram
-brew install engram
-```
-
-## Start the daemon
-
-The daemon watches `~/.claude/projects/` for Claude Code transcripts and syncs them to your Engram account.
+Until the first tagged release is published:
 
 ```bash
-# Authenticate first
-engram auth login <your-api-key>
-
-# Start as a background service (auto-starts on login)
-brew services start engram
-
-# Check status
-engram status
-
-# Stop
-brew services stop engram
+brew tap ai-integr8tor/engram
+brew install --HEAD local-recall
 ```
 
-## CLI usage
+## Use it with any MCP-capable IDE
+
+Configure a local stdio server with:
+
+```text
+command: local-recall
+args: mcp
+```
+
+Optional environment variables:
 
 ```bash
-engram search "when did we deploy"    # Semantic search across memory
-engram log                            # Recent AI conversation activity
-engram store -c <id> "some note"      # Store a message manually
-engram conversations list             # List all conversations
+export LOCAL_RECALL_DATA_PATH="$HOME/.local/share/local-recall/memory.json"
+export LOCAL_RECALL_WORKSPACE="personal"
 ```
 
-## Links
+To run the authenticated HTTP MCP and REST daemon:
 
-- [Website](https://getengram.app)
-- [GitHub](https://github.com/get-engram/engram)
-- [npm](https://www.npmjs.com/package/@getengram/cli)
+```bash
+export LOCAL_RECALL_TOKEN="replace-with-a-long-random-token"
+local-recall serve
+```
+
+The daemon binds to `127.0.0.1:8787` by default.
+
+## Packaging boundary
+
+This repository should contain only Homebrew packaging and release checks. Product behavior belongs in `ai-integr8tor/engram`. After a `v0.1.0` core release exists, add a stable source archive and checksum while retaining the `head` build.
+
+See `NOTICE.md` for imported-history attribution.
